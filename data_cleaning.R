@@ -1,4 +1,4 @@
-# Load necessary libraries
+
 library(readxl)
 library(dplyr)
 
@@ -6,8 +6,7 @@ library(dplyr)
 file_path <- "Employees data.xlsx"
 df <- read_excel(file_path)
 
-# Rename columns if necessary (fix spaces in column names)
-colnames(df) <- gsub(" ", "_", colnames(df))  # Replaces spaces with underscores
+colnames(df) <- gsub(" ", "_", colnames(df))  
 
 # View initial structure
 str(df)
@@ -40,9 +39,6 @@ df$Experience_Level <- case_when(
 # Save the cleaned dataset
 write.csv(df, "cleaned_employees.csv", row.names = FALSE)
 
-# View final structure
 str(df)
 summary(df)
-
-# Print success message
 print("cleaned_employees.csv has been successfully created!")
